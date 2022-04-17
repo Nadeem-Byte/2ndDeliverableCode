@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<title>The Bed and Breakfast Directory , Bed and Breakfast Accommodation in the UK and Ireland</title> <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Bed and Breakfast Accommodation in , Bed and Breakfast Accommodation in the UK ( England, Wales and Scotland ) & Ireland, Book direct with the B and B owners." />
+		<meta name="keywords" content=", " />
+		<meta name="robots" content="index,follow" />
+		<meta name="title" content=" " />
+		<meta name="google-site-verification" content="$google_site_ver" />
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png">
+		<link rel="stylesheet" type="text/css" href="/styles/cc-main.css" />
+		<link type="text/css" href="/styles/tipTip.css" rel="stylesheet" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbsnTXMPyMcRLbdYwZDUMcuhasd6HbpHg"></script>
+		<script type="text/javascript" src="/scripts/markerclusterer.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="/scripts/jquery.lazyload.min.js"></script>
+		<script src="/scripts/generalNew.js"></script>
+
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-11122738-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+		</head>
+<body>
+
+<div class="search_loader" id="search_loader"><h1>Searching.....</h1>Please Wait. <div class="animated"></div></div>
+<a class="top_left" href="/"><div class="inner"><h1>The B and B Directory</h1>Find your nearest B&b accommodation.</div></a>
+
+<a class="contextitem" href="/">Home</a><a class="contextitem" href="/advertise.php">Advertise with us</a><a class="contextitem" href="/contact.php">Contact Us</a><a class="contextitem highlite" id="favLink" href="/favourites.php">0 Favourites</a>
+
+	<div class="fav_list"><iframe id="fav_list_frame" class="fav_list_inner" src="/favList.php"></iframe>
+	</div>
+
+
+
+</div>
+
+<div class="search_outer">
+	<div id="tab_holder" class="tab_holder color_campsites">
+		<div class="tab_top">
+			<a class="taba tab_campsites tab_active" href="#" onclick="switchTab('campsites','business');">Search Bed and Breakfast</a>
+					</div>
+		<div id="search_campsites" class="tab_bottom campsites">
+			<h2>Find your perfect guest accommodation</h2>
+			<div class="search_box_outer">
+				<a href="#" onclick="getLocation();" title="Use your current location." class="buttonloc"></a>
+				<input type="hidden" id="lat" value="" />
+				<input type="hidden" id="lng" value="" />
+				<input type="hidden" id="r" value="" />
+				<input type="hidden" id="sort" value="default" />
+				<input type="text" name="search_loc" id="search_loc" value="" onchange="$('#lat').val(''); $('#lng').val('');" placeholder="search for: Bristol, Somerset, Lands End etc" onkeyup="if(event.keyCode == 13){ $('#go_button').click();}" />
+				<a href="#" id="go_button" onclick="addressLookup($('#search_loc').val(),'go_button');" class="button buttongo">Go &gt;</a>
+</div>
+		 			 	<div id="address_results" class="address_results"></div>
+
+		</div>
+			
+		 	<div id="address_results" class="address_results"></div>
+
+		</div>
+	</div>
+
+</div>
+
+<div class="search_options"><div class="search_options_title">Search Options <span class="checkedCount">(<span id="checkedCount">0</span> of 8 selected)</span></div><div class="option_list"><span><input onchange="updateChecked();" type="checkbox" name="cycle_hire" id="opt_cycle_hire" value="1" /><label class="icon_cycle" for="opt_cycle_hire" >Cycle Hire</label></span><span><input onchange="updateChecked();" type="checkbox" name="pool" id="opt_pool" value="1" /><label class="icon_indoorpool" for="opt_pool" >Swimming Pool</label></span><span><input onchange="updateChecked();" type="checkbox" name="allow_pets" id="opt_allow_pets" value="1" /><label class="icon_pets" for="opt_allow_pets" >Pets Allowed</label></span><span><input onchange="updateChecked();" type="checkbox" name="play_area" id="opt_play_area" value="1" /><label class="icon_playarea" for="opt_play_area" >Garden</label></span><span><input onchange="updateChecked();" type="checkbox" name="wifi" id="opt_wifi" value="1" /><label class="icon_wifi" for="opt_wifi" >WiFi</label></span><span><input onchange="updateChecked();" type="checkbox" name="allow_disabled" id="opt_allow_disabled" value="1" /><label class="icon_disabled" for="opt_allow_disabled" >Disabled Access</label></span><span><input onchange="updateChecked();" type="checkbox" name="parking" id="opt_parking" value="1" /><label class="icon_parking" for="opt_parking" >Off Street Parking</label></span><span><input onchange="updateChecked();" type="checkbox" name="dinner" id="opt_dinner" value="1" /><label class="icon_dinner" for="opt_dinner" >Dinner Available</label></span></div><a href="#" onclick="clearOptions(); return false;" class="button grey">Clear All</a><a href="#" onclick="submitOptions(); return false;" class="button teal">Update Results</a></div>
+<div class="mid_outer">
+
+<div class="welcome">
+	<div class="inner">
+<h1>Welcome</h1>
+<p>The B &amp; B World offers a wide range of bed and breakfasts in England, Wales, Scotland, Northern Ireland &amp; Ireland. Whether you are looking for an overnight stop for your business trip or you are looking to have a short break for the weekend we are the accommodation website to find it on.</p>
+
+<p>You can contact the owners direct from their listing on our website. Each B &amp; B listing shows detailed descriptions and lists the accommodations features as well. You can also visit their website directly from us and any emails will go straight to the accommodation owner.</p>
+
+<p>The B &amp; B World has a simple way to search, you can type in a location above to find your B &amp; B and you can also refine your search by clicking on the Search Options above. We are your comprehensive guide to B&B's in the UK and Ireland. </p>
+
+<p>Get searching now to find your perfect B &amp; B on <a href="http://www.thebandbworld.co.uk/">thebandbworld.co.uk</a></p>
+
+
+<div class="fp_list">
+<h1>Search for B &amp B's by County</h1>
+<h2>Scotland</h2><p><a href="search.php?q=Kinross%2C+Scotland" >Kinross</a> | <a href="search.php?q=Perthshire%2C+Scotland" >Perthshire</a> | <a href="search.php?q=Aberdeenshire%2C+Scotland" >Aberdeenshire</a> | <a href="search.php?q=Morayshire%2C+Scotland" >Morayshire</a> | <a href="search.php?q=Angus%2C+Scotland" >Angus</a> | <a href="search.php?q=Dumfries+%26+Galloway%2C+Scotland" >Dumfries & Galloway</a> | <a href="search.php?q=Ayrshire%2C+Scotland" >Ayrshire</a> | <a href="search.php?q=Fife%2C+Scotland" >Fife</a> | <a href="search.php?q=Isle+of+Arran%2C+Scotland" >Isle of Arran</a> | <a href="search.php?q=Inverness-shire%2C+Scotland" >Inverness-shire</a> | <a href="search.php?q=Speyside%2C+Scotland" >Speyside</a> | <a href="search.php?q=Banffshire%2C+Scotland" >Banffshire</a> | <a href="search.php?q=Caithness%2C+Scotland" >Caithness</a> | <a href="search.php?q=Clackmannan%2C+Scotland" >Clackmannan</a> | <a href="search.php?q=Dunbartonshire%2C+Scotland" >Dunbartonshire</a> | <a href="search.php?q=East+Lothian%2C+Scotland" >East Lothian</a> | <a href="search.php?q=Kincardineshire%2C+Scotland" >Kincardineshire</a> | <a href="search.php?q=Lanarkshire%2C+Scotland" >Lanarkshire</a> | <a href="search.php?q=Orkney%2C+Scotland" >Orkney</a> | <a href="search.php?q=Western+Isles%2C+Scotland" >Western Isles</a> | <a href="search.php?q=Renfrewshire%2C+Scotland" >Renfrewshire</a> | <a href="search.php?q=Cromarty%2C+Scotland" >Cromarty</a> | <a href="search.php?q=Sutherland%2C+Scotland" >Sutherland</a> | <a href="search.php?q=West+Lothian%2C+Scotland" >West Lothian</a> | <a href="search.php?q=Argyll%2C+Bute+%26+The+Islands%2C+Scotland" >Argyll, Bute & The Islands</a> | <a href="search.php?q=Edinburgh%2C+Scotland" >Edinburgh</a> | <a href="search.php?q=Stirling%2C+Scotland" >Stirling</a> | <a href="search.php?q=Midlothian%2C+Scotland" >Midlothian</a> | <a href="search.php?q=Wester+Ross%2C+Scotland" >Wester Ross</a> | <a href="search.php?q=Isle+of+Skye%2C+Scotland" >Isle of Skye</a> | <a href="search.php?q=Ross-Shire%2C+Scotland" >Ross-Shire</a> | <a href="search.php?q=Nairnshire%2C+Scotland" >Nairnshire</a> | <a href="search.php?q=Shetland+Islands%2C+Scotland" >Shetland Islands</a> | <a href="search.php?q=Scottish+Borders%2C+UK" >Scottish Borders</a> | <a href="search.php?q=Isle+of+Mull%2C+Scotland" >Isle of Mull</a></p><h2>North East</h2><p><a href="search.php?q=South+Yorkshire%2C+England" >South Yorkshire</a> | <a href="search.php?q=Northumberland%2C+England" >Northumberland</a> | <a href="search.php?q=Durham%2C+England" >Durham</a> | <a href="search.php?q=North+Yorkshire%2C+England" >North Yorkshire</a> | <a href="search.php?q=East+Yorkshire%2C+England" >East Yorkshire</a> | <a href="search.php?q=West+Yorkshire%2C+England" >West Yorkshire</a> | <a href="search.php?q=Tyne+%26+Wear%2C+England" >Tyne & Wear</a> | <a href="search.php?q=Yorkshire%2C+England" >Yorkshire</a></p><h2>North West</h2><p><a href="search.php?q=Cumbria%2C+England" >Cumbria</a> | <a href="search.php?q=Lancashire%2C+England" >Lancashire</a> | <a href="search.php?q=Cheshire%2C+England" >Cheshire</a> | <a href="search.php?q=Merseyside%2C+England" >Merseyside</a> | <a href="search.php?q=Greater+Manchester%2C+England" >Greater Manchester</a></p><h2>Wales</h2><p><a href="search.php?q=Anglesey%2C+Wales" >Anglesey</a> | <a href="search.php?q=Co.nwy%2C+Wales" >Conwy</a> | <a href="search.php?q=Denbighshire%2C+Wales" >Denbighshire</a> | <a href="search.php?q=Gwynedd%2C+Wales" >Gwynedd</a> | <a href="search.php?q=Powys%2C+Wales" >Powys</a> | <a href="search.php?q=Ceredigion%2C+Wales" >Ceredigion</a> | <a href="search.php?q=Pembrokeshire%2C+Wales" >Pembrokeshire</a> | <a href="search.php?q=Carmarthenshire%2C+Wales" >Carmarthenshire</a> | <a href="search.php?q=Glamorgan%2C+Wales" >Glamorgan</a> | <a href="search.php?q=Monmouthshire%2C+Wales" >Monmouthshire</a> | <a href="search.php?q=Flintshire%2C+Wales" >Flintshire</a> | <a href="search.php?q=Wrexham%2C+Wales" >Wrexham</a></p><h2>Heart of England</h2><p><a href="search.php?q=Derbyshire%2C+England" >Derbyshire</a> | <a href="search.php?q=Oxfordshire%2C+England" >Oxfordshire</a> | <a href="search.php?q=Worcestershire%2C+England" >Worcestershire</a> | <a href="search.php?q=Staffordshire%2C+England" >Staffordshire</a> | <a href="search.php?q=Shropshire%2C+England" >Shropshire</a> | <a href="search.php?q=Herefordshire%2C+England" >Herefordshire</a> | <a href="search.php?q=Gloucestershire%2C+England" >Gloucestershire</a> | <a href="search.php?q=Nottinghamshire%2C+England" >Nottinghamshire</a> | <a href="search.php?q=Leicestershire%2C+England" >Leicestershire</a> | <a href="search.php?q=Northamptonshire%2C+England" >Northamptonshire</a> | <a href="search.php?q=Warwickshire%2C+England" >Warwickshire</a> | <a href="search.php?q=West+Midlands%2C+England" >West Midlands</a> | <a href="search.php?q=Rutland%2C+England" >Rutland</a></p><h2>East</h2><p><a href="search.php?q=Norfolk%2C+England" >Norfolk</a> | <a href="search.php?q=Lincolnshire%2C+England" >Lincolnshire</a> | <a href="search.php?q=Cambridgeshire%2C+England" >Cambridgeshire</a> | <a href="search.php?q=Suffolk%2C+England" >Suffolk</a> | <a href="search.php?q=Essex%2C+England" >Essex</a></p><h2>South</h2><p><a href="search.php?q=Kent%2C+England" >Kent</a> | <a href="search.php?q=West+Sussex%2C+England" >West Sussex</a> | <a href="search.php?q=East+Sussex%2C+England" >East Sussex</a> | <a href="search.php?q=Bedfordshire%2C+England" >Bedfordshire</a> | <a href="search.php?q=Berkshire%2C+England" >Berkshire</a> | <a href="search.php?q=Wiltshire%2C+England" >Wiltshire</a> | <a href="search.php?q=Hampshire%2C+England" >Hampshire</a> | <a href="search.php?q=Isle+of+Wight%2C+England" >Isle of Wight</a> | <a href="search.php?q=London%2C+England" >London</a> | <a href="search.php?q=Hertfordshire%2C+England" >Hertfordshire</a> | <a href="search.php?q=Buckinghamshire%2C+England" >Buckinghamshire</a> | <a href="search.php?q=Surrey%2C+England" >Surrey</a> | <a href="search.php?q=Middlesex%2C+England" >Middlesex</a></p><h2>South West</h2><p><a href="search.php?q=Co.rnwall%2C+England" >Cornwall</a> | <a href="search.php?q=Devon%2C+England" >Devon</a> | <a href="search.php?q=Dorset%2C+England" >Dorset</a> | <a href="search.php?q=Somerset%2C+England" >Somerset</a> | <a href="search.php?q=Bristol%2C+England" >Bristol</a> | <a href="search.php?q=Scilly+Isles%2C+England" >Scilly Isles</a></p><h2>Northern Ireland</h2><p><a href="search.php?q=Londonderry%2C+Northern+Ireland" >Londonderry</a> | <a href="search.php?q=Co.+Antrim%2C+Northern+Ireland" >Co Antrim</a> | <a href="search.php?q=Co.+Tyrone%2C+Northern+Ireland" >Co Tyrone</a> | <a href="search.php?q=Fermanagh%2C+Northern+Ireland" >Fermanagh</a> | <a href="search.php?q=Armagh%2C+Northern+Ireland" >Armagh</a> | <a href="search.php?q=Co.unty+Down%2C+Northern+Ireland" >County Down</a> | <a href="search.php?q=Co.+Derry%2C+Northern+Ireland" >Co Derry</a></p><h2>Ireland</h2><p><a href="search.php?q=Co.+Galway%2C+Ireland" >Co Galway</a> | <a href="search.php?q=Co.+Meath%2C+Ireland" >Co Meath</a> | <a href="search.php?q=Co.+Louth%2C+Ireland" >Co Louth</a> | <a href="search.php?q=Co.+Kildare%2C+Ireland" >Co Kildare</a> | <a href="search.php?q=Co.+Westmeath%2C+Ireland" >Co Westmeath</a> | <a href="search.php?q=Co.+Wicklow%2C+Ireland" >Co Wicklow</a> | <a href="search.php?q=Co.+Waterford%2C+Ireland" >Co Waterford</a> | <a href="search.php?q=Co.+Laois%2C+Ireland" >Co Laois</a> | <a href="search.php?q=Co.+Dublin%2C+Ireland" >Co Dublin</a> | <a href="search.php?q=Co.+Monaghan%2C+Ireland" >Co Monaghan</a> | <a href="search.php?q=Co.+Leitrim%2C+Ireland" >Co Leitrim</a> | <a href="search.php?q=Co.+Carlow%2C+Ireland" >Co Carlow</a> | <a href="search.php?q=Co.+Tipperary%2C+Ireland" >Co Tipperary</a> | <a href="search.php?q=Co.+Kilkenny%2C+Ireland" >Co Kilkenny</a> | <a href="search.php?q=Co.+Cavan%2C+Ireland" >Co Cavan</a> | <a href="search.php?q=Co.+Clare%2C+Ireland" >Co Clare</a> | <a href="search.php?q=Co.+Donegal%2C+Ireland" >Co Donegal</a> | <a href="search.php?q=Co.+Mayo%2C+Ireland" >Co Mayo</a> | <a href="search.php?q=Co.+Sligo%2C+Ireland" >Co Sligo</a> | <a href="search.php?q=Co.+Limerick%2C+Ireland" >Co Limerick</a> | <a href="search.php?q=Co.+Kerry%2C+Ireland" >Co Kerry</a> | <a href="search.php?q=Co.+Co.rk%2C+Ireland" >Co Cork</a> | <a href="search.php?q=Co.+Wexford%2C+Ireland" >Co Wexford</a> | <a href="search.php?q=Co.+Offaly%2C+Ireland" >Co Offaly</a> | <a href="search.php?q=Co.+Roscommon%2C+Ireland" >Co Roscommon</a> | <a href="search.php?q=Co.+Longford%2C+Ireland" >Co Longford</a></p><h2>Channel Islands</h2><p><a href="search.php?q=Alderney%2C+Channel+Islands" >Alderney</a> | <a href="search.php?q=Guernsey%2C+Channel+Islands" >Guernsey</a> | <a href="search.php?q=Jersey%2C+Channel+Islands" >Jersey</a> | <a href="search.php?q=Herm%2C+Channel+Islands" >Herm</a> | <a href="search.php?q=Jethou%2C+Channel+Islands" >Jethou</a> | <a href="search.php?q=Sark%2C+Channel+Islands" >Sark</a></p><h2>Isle of Man</h2><p><a href="search.php?q=Isle+of+Man%2C+England" >Isle of Man</a></p></div>
+
+
+<div id="footer">
+:: <a href="/terms.php">Terms and Conditions for Advertisers</a> :: <a href="/privacy.php">Privacy Policy</a>
+</div>
+<script>
+
+$("div.lazy").lazyload({
+      effect : "fadeIn"
+  });
+
+ $(function() {
+
+
+$('*:not(#map)').tooltip();
+});
+
+
+$('.scrollTo').click(function(){
+    $('html, body').animate({
+        scrollTop: $('[name="' + $.attr(this, 'href').substr(1) + '"]').offset().top
+    }, 500);
+    return false;
+});
+
+</script>
+</body>
+</html>
